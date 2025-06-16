@@ -6,14 +6,14 @@
 datasets:                      # ① Dónde están los ficheros origen
   # --- TABLA «A» -----------------------------------------------------------
   bien_inmueble:
-   
-    dir:  "C:/Users/Antón/Documents/CATASTRO/Datos Raw"
+
+    dir:  "../Datos Raw"
     pattern: "bien_inmueble.xlsx"      # o *.xlsx si lo necesitas
     key:  ["id_parcela", "id_numcargo", "id_ctrl_1", "id_ctrl_2"]
 
   # --- TABLA «B» -----------------------------------------------------------
   titular_bien_inmueble:
-    dir:  "C:/Users/Antón/Documents/CATASTRO/Datos Raw"
+    dir:  "../Datos Raw"
     pattern: "titular_bien_inmueble.xlsx"      # o *.xlsx si lo necesitas
     
     key:  ["id_parcela", "id_numcargo", "id_ctrl_1", "id_ctrl_2"]
@@ -82,7 +82,7 @@ builders:
 # ---------------------------------------------------------------------------
 
 
-output: 
-                       # ⑤ Carpeta y nombre del fichero resultante
-  dir:  "C:/Users/Antón/Documents/CATASTRO/Datos Clean"   # se crea si no existe
+output:
+                        # ⑤ Carpeta y nombre del fichero resultante
+  dir:  "../Datos Clean"   # se crea si no existe
   name: "union_padron.csv" # puedes usar .csv si prefieres
