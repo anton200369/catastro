@@ -2,12 +2,14 @@ import pandas as pd
 
 BIEN_GROUPED = 'bien_inmueble_grouped.xlsx'
 TITULAR_GROUPED = 'titular_bien_inmueble_grouped.xlsx'
+LIXO_GROUPED = 'lixo_padron_grouped.xlsx'
 
 
 def main():
     # Load grouped tables
     bien = pd.read_excel(BIEN_GROUPED, dtype=str)
     titular = pd.read_excel(TITULAR_GROUPED, dtype=str)
+    lixo = pd.read_excel(LIXO_GROUPED, dtype=str)
 
     # Merge on id_parcela and miembro so that rows align within each parcel
     merged = pd.merge(
@@ -16,6 +18,13 @@ def main():
         on=["id_parcela", "miembro"],
         how="outer",
         suffixes=("_bien", "_tit")
+    )
+
+    merged = pd.merge(
+        merged,
+        lixo,
+        on=["id_fullref", "miembro"],
+        how="left"
     )
 
     merged = merged.sort_values(["id_parcela", "miembro"])
