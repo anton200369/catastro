@@ -1,0 +1,14 @@
+{N_fijo}
+{Desc_OT}
+{Direccion_OT}
+{Ref_Catastral_fin}
+{Direccion_SP_OT}
+{NIF_SP_OT}
+{Nombre_SP}
+{CP_SP_OT}
+{Tipo_Oper_OT}
+{NOMBRE_CALL_OT}
+{NUMERO_OT}
+{ESCALERA_OT}
+{PLANTA_OT}
+{PUERTA_OT}
