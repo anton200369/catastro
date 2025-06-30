@@ -1,0 +1,27 @@
+
+datasets:
+
+
+    datos_catastro:
+    
+        dir:  "C:/Users/Antón/Documents/CATASTRO/Datos Raw"
+        pattern: "Padron_Lixo.xlsx"      # o *.xlsx si lo necesitas
+        key:  ["id_parcela", "id_numcargo", "id_ctrl_1", "id_ctrl_2"]
+
+
+
+columns:                       # ② Qué columnas conservar / cómo renombrar
+    datos_catastro:
+        Desc_OT:        {as: direccion_formato1 }
+        Direccion_OT:    {as: direccion_formato2}
+        Ref_Catastral_fin: {as: id_fullref}
+        Direccion_SP_OT    {as: direccion_alt}
+        NIF_SP_OT:         {as: nif}
+        Nombre_SP:         {as: nombre_apell}
+        CP_SP_OT:          {as: postal_final}
+        Tipo_Oper_OT:      {as: analisis}
+        NOMBRE_CALL_OT:    {as: nombre_final}
+        NUMERO_OT:         {as: numero_final}
+        ESCALERA_OT:       {as: escalera_final}
+        PLANTA_OT:         {as: planta_final}
+        PUERTA_OT:         {as: puerta_final}
