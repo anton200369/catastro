@@ -17,7 +17,9 @@ def preparar_tabla(path, mapping):
     df = df[list(mapping.keys())]
     rename_map = {k: v['as'] for k, v in mapping.items()}
     df = df.rename(columns=rename_map)
-    return df.sort_values('id_parcela')
+    df = df.sort_values('id_parcela')
+    df['miembro'] = df.groupby('id_parcela').cumcount() + 1
+    return df
 
 
 def mostrar_grupos(df, nombre):
@@ -35,8 +37,8 @@ def main():
     bien = preparar_tabla(BIEN_FILE, columnas['bien_inmueble'])
     titular = preparar_tabla(TITULAR_FILE, columnas['titular_bien_inmueble'])
 
-    bien.to_csv('bien_inmueble_grouped.csv', index=False)
-    titular.to_csv('titular_bien_inmueble_grouped.csv', index=False)
+    bien.to_excel('bien_inmueble_grouped.xlsx', index=False)
+    titular.to_excel('titular_bien_inmueble_grouped.xlsx', index=False)
 
     mostrar_grupos(bien, 'bien_inmueble')
     mostrar_grupos(titular, 'titular_bien_inmueble')
