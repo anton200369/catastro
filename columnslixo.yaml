@@ -3,7 +3,7 @@ columns:
     Desc_OT: {as: direccion_formato1}
     Direccion_OT: {as: direccion_formato2}
     Ref_Catastral_Fin: {as: id_fullref}
-    Direccion_SP_OT: {as: direccion_alt}
+    Direccion_SP_OT: {as: direccion_pagador}
     NIF_SP_OT: {as: nif}
     Nombre_SP: {as: nombre_apell}
     CP_SP_OT: {as: postal_final}
