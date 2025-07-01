@@ -19,8 +19,8 @@ def main():
         on=["id_parcela", "miembro"],
         how="outer",
 
-        suffixes=("_bien", "_tit"),
         suffixes=("_bien", "_tit")
+    
 
     )
 
