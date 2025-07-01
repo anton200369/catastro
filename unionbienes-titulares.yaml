@@ -27,13 +27,13 @@ columns:                       # ② Qué columnas conservar / cómo renombrar
     id_ctrl_1:     {as: id_ctr1}
     id_ctrl_2:     {as: id_ctr2}
     dom_codvia:    {as: codvia_bien}
-    dom_siglavia:  {as: sigla_bien}
+    #dom_siglavia:  {as: sigla_bien}
     dom_nomvia:    {as: nombre_bien}
     dom_escalera:  {as: escalera_bien}
     dom_planta:    {as: planta_bien}
     dom_puerta:    {as: puerta_bien}
-    dom_codpostal: {as: cod_postal_bien}
-    dom_codmun:    {as: num_municipio_bien}
+    #dom_codpostal: {as: cod_postal_bien}
+    #dom_codmun:    {as: num_municipio_bien}
     dom_bloque:    {as: bloque_bien}
 
   titular_bien_inmueble:
@@ -42,15 +42,15 @@ columns:                       # ② Qué columnas conservar / cómo renombrar
     der_codigo:    {as: propiedad}
     der_porcentaje: {as: porcentaje_propiedad}
     der_ordinal:   {as: der_ordinal}
-    dom_siglavia:  {as: sigla_tit}
+    #dom_siglavia:  {as: sigla_tit}
     dom_codvia:    {as: codvia_tit}
     dom_nomvia:    {as: domicilio_actual}
     dom_escalera:  {as: escalera}
     dom_planta:    {as: planta}
     dom_puerta:    {as: puerta}
-    dom_codpostal: {as: cod_postal}
+    #dom_codpostal: {as: cod_postal}
     dom_bloque:    {as: bloque}
-    dom_codmun:    {as: num_municipio}
+    #dom_codmun:    {as: num_municipio}
     
 
 # ---------------------------------------------------------------------------
