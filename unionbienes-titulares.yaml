@@ -29,6 +29,8 @@ columns:                       # ② Qué columnas conservar / cómo renombrar
     dom_codvia:    {as: codvia_bien}
     #dom_siglavia:  {as: sigla_bien}
     dom_nomvia:    {as: nombre_bien}
+    dom_num_1:     {as: numero_bien}
+    dom_letra_1:   {as: letra_bien}
     dom_escalera:  {as: escalera_bien}
     dom_planta:    {as: planta_bien}
     dom_puerta:    {as: puerta_bien}
@@ -42,6 +44,8 @@ columns:                       # ② Qué columnas conservar / cómo renombrar
     der_codigo:    {as: propiedad}
     der_porcentaje: {as: porcentaje_propiedad}
     der_ordinal:   {as: der_ordinal}
+    tit_nif:        {as: dni_tit}
+    tit_apenom:     {as: nombre_apellidos_tit}
     #dom_siglavia:  {as: sigla_tit}
     dom_codvia:    {as: codvia_tit}
     dom_nomvia:    {as: domicilio_actual}
