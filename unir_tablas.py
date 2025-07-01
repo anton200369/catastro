@@ -18,11 +18,33 @@ def main():
         titular,
         on=["id_parcela", "miembro"],
         how="outer",
+
+        suffixes=("_bien", "_tit"),
         suffixes=("_bien", "_tit")
+
     )
 
     merged = merged.sort_values(["id_parcela", "miembro"])
 
+    # Build the full reference from union columns
+    required = {"id_parcela", "numero_responsables", "id_ctr1", "id_ctr2"}
+    if required.issubset(merged.columns):
+        merged["ref_completa"] = (
+            merged["id_parcela"].astype(str)
+            + merged["numero_responsables"].astype(int).astype(str).str.zfill(4)
+            + merged["id_ctr1"].astype(str)
+            + merged["id_ctr2"].astype(str)
+        )
+    else:
+        merged["ref_completa"] = pd.NA
+
+    # Determine references that are present in Padron_Lixo
+    refs_union = set(merged["ref_completa"].dropna())
+    coincidencias = lixo[lixo["id_fullref"].isin(refs_union)]
+    coincidencias = coincidencias.copy()
+
+    # Remove rows from the union that have a matching reference
+    merged = merged[~merged["ref_completa"].isin(coincidencias["id_fullref"])]
     # Determine references that are present in Padron_Lixo
     refs_lixo = set(lixo["id_fullref"].dropna())
     coincidencias = lixo[lixo["id_fullref"].isin(merged["id_fullref"].dropna())]
