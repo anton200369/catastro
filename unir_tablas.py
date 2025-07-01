@@ -18,7 +18,10 @@ def main():
         titular,
         on=["id_parcela", "miembro"],
         how="outer",
+
         suffixes=("_bien", "_tit"),
+        suffixes=("_bien", "_tit")
+
     )
 
     merged = merged.sort_values(["id_parcela", "miembro"])
@@ -42,6 +45,12 @@ def main():
 
     # Remove rows from the union that have a matching reference
     merged = merged[~merged["ref_completa"].isin(coincidencias["id_fullref"])]
+    # Determine references that are present in Padron_Lixo
+    refs_lixo = set(lixo["id_fullref"].dropna())
+    coincidencias = lixo[lixo["id_fullref"].isin(merged["id_fullref"].dropna())]
+
+    # Remove rows from the union that have a matching reference
+    merged = merged[~merged["id_fullref"].isin(refs_lixo)]
 
     # Insert visual separator column between datasets
     merged["sep_bien_tit"] = ""
