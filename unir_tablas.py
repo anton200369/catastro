@@ -28,6 +28,25 @@ def main():
     )
 
     merged = merged.sort_values(["id_parcela", "miembro"])
+
+    # Insert visual separator columns between datasets
+    merged["sep_bien_tit"] = ""
+    merged["sep_tit_lixo"] = ""
+
+    bien_cols = bien.columns.tolist()
+    tit_cols = [c for c in titular.columns if c not in ["id_parcela", "miembro"]]
+    lixo_cols = [c for c in lixo.columns if c not in ["id_fullref", "miembro"]]
+
+    column_order = (
+        bien_cols
+        + ["sep_bien_tit"]
+        + tit_cols
+        + ["sep_tit_lixo"]
+        + lixo_cols
+    )
+    column_order = [c for c in column_order if c in merged.columns]
+    merged = merged.reindex(columns=column_order)
+
     merged.to_excel("union_grouped.xlsx", index=False)
 
     # Count number of rows per id_parcela in the merged result
