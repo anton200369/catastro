@@ -34,9 +34,10 @@ columns:                       # ② Qué columnas conservar / cómo renombrar
     dom_escalera:  {as: escalera_bien}
     dom_planta:    {as: planta_bien}
     dom_puerta:    {as: puerta_bien}
-    #dom_codpostal: {as: cod_postal_bien}
-    #dom_codmun:    {as: num_municipio_bien}
+    #dom_codpostal:{as: cod_postal_bien} #dom_codmun: {as: num_municipio_bien}
     dom_bloque:    {as: bloque_bien}
+
+
 
   titular_bien_inmueble:
     id_parcela:    {as: id_parcela}
