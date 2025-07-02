@@ -50,6 +50,8 @@ columns:                       # ② Qué columnas conservar / cómo renombrar
     #dom_siglavia:  {as: sigla_tit}
     dom_codvia:    {as: codvia_tit}
     dom_nomvia:    {as: domicilio_actual}
+    dom_num_1:     {as: numero_tit}
+    dom_letra_1:   {as: letra_tit}
     dom_escalera:  {as: escalera}
     dom_planta:    {as: planta}
     dom_puerta:    {as: puerta}
