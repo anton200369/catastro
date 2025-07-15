@@ -68,7 +68,12 @@ class AssignApp:
         self.current_id = ident
         self.id_label.config(text=f"Identificador: {ident}")
 
-        ref_list = [r.strip() for r in str(refs).split(",") if r.strip()]
+        ref_list = []
+        if isinstance(refs, str):
+            if refs.lower() not in ("nan", "<na>", "none", ""):
+                ref_list = [r.strip() for r in refs.split(",") if r.strip()]
+        elif pd.notna(refs):
+            ref_list = [str(refs).strip()]
         self.combo['values'] = ref_list
         if len(ref_list) == 1:
             self.combo.current(0)
