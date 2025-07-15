@@ -206,6 +206,7 @@ def main():
     candidatos_dni_dir = result_dni_all.dropna(subset=["refs_candidatas_dni_dir"]).copy()
     dni_dir_idxs = set(candidatos_dni_dir["idx_lixo"].unique())
     candidatos_dni_dir = candidatos_dni_dir.drop(columns=["idx_lixo"], errors="ignore")
+    candidatos_dni_dir = candidatos_dni_dir.sort_values("num_candidatos_dni_dir")
     candidatos_dni_dir = _apply_links(candidatos_dni_dir)
     candidatos_dni_dir.to_excel(OUT_DNI_DIR, index=False, engine="openpyxl")
 
@@ -213,8 +214,13 @@ def main():
         result_dni_all
         .dropna(subset=["refs_candidatas_dni"])
         .loc[~result_dni_all["idx_lixo"].isin(dni_dir_idxs)]
-        .drop(columns=["idx_lixo"], errors="ignore")
+        .drop(columns=[
+            "idx_lixo",
+            "refs_candidatas_dni_dir",
+            "num_candidatos_dni_dir",
+        ], errors="ignore")
     )
+    candidatos_dni = candidatos_dni.sort_values("num_candidatos_dni")
     candidatos_dni = _apply_links(candidatos_dni)
     candidatos_dni.to_excel(OUT_DNI, index=False, engine="openpyxl")
 
@@ -282,6 +288,7 @@ def main():
         .loc[~result_dir_all["idx_lixo"].isin(dni_dir_idxs)]
         .drop(columns=["idx_lixo", "addr_key"], errors="ignore")
     )
+    candidatos_dir = candidatos_dir.sort_values("num_candidatos_dir")
     candidatos_dir = _apply_links(candidatos_dir)
     candidatos_dir.to_excel(OUT_DIR, index=False, engine="openpyxl")
 
